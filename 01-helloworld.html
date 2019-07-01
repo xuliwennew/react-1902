@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app"></div>
+
+<!--test 动态编译 es6 jsx-->
+<script src="bower_components/react/babel-browser.min.js"></script>
+<script src="bower_components/react/react.development.js"></script>
+<script src="bower_components/react/react-dom.development.js"></script>
+<script type="text/babel">
+    (function () {
+        //jsx javascript xml jsx es6 babel
+        let hello = <div>
+            <h1>
+                hello world
+            </h1>
+        </div>
+
+        //js代码的方式创建vnode
+        let hello1 = React.createElement("div",{},React.createElement("h1",null,"hello world"))
+
+        //template - > render
+
+        console.log(hello) // hello babel-> vnode
+
+        //vue 写vnode template jsx  react 创建视的方式是jsx
+
+        //一个对象就是一个组件
+        function Hello (){
+            return "hello world"
+        }
+
+        ReactDOM.render(<Hello/>,document.querySelector("#app"))
+    })()
+</script>
+</body>
+</html>
