@@ -1,0 +1,7 @@
+0. 组件的视图的创建 vnode / jsx/ template
+	jsx 是一种通用的创建vnode的作法，这个标签需要通过babel进行转换成js vnode 对象
+1. 组件的结构 react style component
+2. 组件的三个内置对象 props state refs
+3. 组件的生命周期方法
+4. 组件设计与组装 (组件的传值问题)
+5. 组件的数据加载 state + fetch

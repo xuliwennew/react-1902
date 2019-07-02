@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <style>
+        .user {
+            color:red
+        }
+    </style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<!--test 动态编译 es6 jsx-->
+<script src="bower_components/react/babel-browser.min.js"></script>
+<script src="bower_components/react/react.development.js"></script>
+<script src="bower_components/react/react-dom.development.js"></script>
+<script type="text/babel">
+    (function () {
+
+        //创建组件的方案 组件的三个要素 view logic style
+        // functional component
+        // 函数组件的要点:
+        // 名称需要Pacal case
+        // 返回值 必须是一个合法的react elements
+        // string vnode component array
+        function Hello() {
+            return "hello world"
+        }
+
+        //lamda cameral case 属性 变量
+        let Wolrd = (props)=>{
+            console.log(props)
+            return [
+                <h1 key="1">
+                    hello world
+                </h1>,
+                <p key="2">world!</p>,
+                React.createElement("section",{key:3},"secton comonent")
+            ]
+        }
+
+        //functional component stateless component
+        // 木偶组件
+
+        //组件的使用应该是 declaritive
+        ReactDOM.render(<Wolrd a={1} b={2}/>,document.querySelector("#app"))
+
+    })()
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <style>
+        .user {
+            color:red
+        }
+    </style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<!--test 动态编译 es6 jsx-->
+<script src="bower_components/react/babel-browser.min.js"></script>
+<script src="bower_components/react/react.development.js"></script>
+<script src="bower_components/react/react-dom.development.js"></script>
+<script type="text/babel">
+    (function () {
+
+
+        class Hello extends React.Component{
+
+            //定义组件的view
+            render() {
+                return (
+                    <div>
+                        <h1>hello world</h1>
+                    </div>
+                );
+            }
+        }
+
+        //组件的使用应该是 declaritive
+        ReactDOM.render(<Hello />,document.querySelector("#app"))
+
+    })()
+
+
+</script>
+</body>
+</html>
