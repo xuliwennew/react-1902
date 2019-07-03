@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <style>
+        .user {
+            color:red
+        }
+    </style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<!--test 动态编译 es6 jsx-->
+<script src="bower_components/react/babel-browser.min.js"></script>
+<script src="bower_components/react/react.development.js"></script>
+<script src="bower_components/react/react-dom.development.js"></script>
+<script type="text/babel">
+    (function () {
+
+        //React.Component 状态只要发生变化，render就会调用一次
+        //React.PureComponent 当两次更新的状态不相同的时候，render才会调用
+        class Counter extends React.Component{
+            //组件的状态，数据驱动 UI state
+            constructor(props) {
+                super(props);
+
+                //初始化状态属性
+                this.state= {
+                    num:0
+                }
+            }
+
+            update(){
+               //修改状态
+                //this.state.num =  1 // 不会更新视图
+                let  {num} = this.state;
+                this.setState({
+                    num: ++num
+                })
+                // this.state.num = ++num;
+                // //当状态发生变化,强制更新视 图的方式
+                // this.forceUpdate()
+                console.log(this.state.num)
+            }
+
+            render() {
+                console.log("rendering...")
+                return (
+                    <div>
+                        <h1>{this.state.num}</h1>
+                        <button onClick={this.update.bind(this)}>+</button>
+                    </div>
+                );
+            }
+
+        }
+
+
+        //组件是一个pure function ,不可以修改输入props
+        ReactDOM.render( <Counter/>,document.querySelector("#app"))
+
+
+    })()
+
+
+</script>
+</body>
+</html>
