@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Title</title>
+    <style>
+        .user {
+            color:red
+        }
+    </style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<!--test 动态编译 es6 jsx-->
+<script src="bower_components/react/babel-browser.min.js"></script>
+<script src="bower_components/react/react.development.js"></script>
+<script src="bower_components/react/react-dom.development.js"></script>
+<script type="text/babel">
+    (function () {
+
+        //React.Component 状态只要发生变化，render就会调用一次
+        //React.PureComponent 当两次更新的状态不相同的时候，render才会调用
+        class Counter extends React.Component{
+            //组件的状态，数据驱动 UI state
+            constructor(props) {
+                super(props);
+
+                //初始化状态属性
+                this.state= {
+                    num:0,
+
+                }
+                console.log('#1 constructor props state ')
+            }
+
+            update(){
+               //修改状态
+                //this.state.num =  1 // 不会更新视图
+                let  {num} = this.state;
+                this.setState({
+                    num: 1
+                })
+                // this.state.num = ++num;
+                // //当状态发生变化,强制更新视 图的方式
+                // this.forceUpdate()
+                console.log(this.state.num)
+            }
+
+            ummount(){
+                ReactDOM.unmountComponentAtNode(document.querySelector("#app"))
+            }
+
+            componentWillMount(){
+                console.log("#2 componentWillMount")
+            }
+
+            render() {
+                console.log("#3 rendering...")
+                return (
+                    <div>
+                        <h1>{this.props.title}{this.state.num}</h1>
+                        <button onClick={this.update.bind(this)}>+</button>
+                        <button onClick={this.ummount.bind(this)}>umnount</button>
+                    </div>
+                );
+            }
+
+            componentDidMount(){
+                console.log("#4 componentDidMount")
+            }
+
+            //可以优化
+            shouldComponentUpdate(nextProps,nextState){
+                console.log("#5 shouldComponentUpdate")
+                // if(nextState.num == this.state.num){
+                //     return false
+                // }else{
+                //     return true;
+                // }
+                return true
+            }
+
+            componentWillUpdate(){
+                console.log("#6 componentWillUpdate")
+            }
+
+            componentDidUpdate(){
+                console.log("#7 componentDidUpdate")
+            }
+
+            componentWillUnmount(){
+                console.log("#8 componentWillUnmount")
+            }
+
+            componentWillReceiveProps(){
+                console.log("#9 componentWillReceiveProps")
+            }
+
+        }
+
+        class CounterContainer extends React.Component {
+
+            constructor(props) {
+                super(props);
+                this.state={
+                    title:"container title1"
+                }
+
+                this.updateTitle = this.updateTitle.bind(this)
+            }
+
+            updateTitle(){
+                this.setState({
+                    title:"container title2"
+                })
+            }
+
+
+            render() {
+                return  <div>
+                    <Counter title={this.state.title}/>
+                    <button onClick={this.updateTitle}>修改标题</button>
+                </div>
+            }
+        }
+
+
+        //组件是一个pure function ,不可以修改输入props
+        //new Counter
+        ReactDOM.render( <CounterContainer  />,document.querySelector("#app"))
+
+
+    })()
+
+
+</script>
+</body>
+</html>

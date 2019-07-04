@@ -1,0 +1,19 @@
+
+
+
+npm install react react-dom -S
+
+npm install webpack webpack-cli
+
+
+.jsx babel
+
+npm install @babel/core @babel/preset-env @babel/preset-react babel-loader
+
+
+react vue 数据驱动
+
+swiper iscroll jquery layerui
+
+npm install swiper
+new Swiper("xxx",{})
