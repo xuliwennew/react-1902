@@ -1,6 +1,7 @@
 import React,{Component} from "react"
 import ReactSwiper from "./views/ReactSwiper"
-
+import UserList from "./views/UserList"
+import MyList from "./components/MyList"
 
 
 
@@ -12,13 +13,13 @@ export default class App extends Component{
     }
 
 
+
     render() {
-        return  <div>
-            <ReactSwiper/>
-            <ReactSwiper/>
-            <ReactSwiper/>
-            <ReactSwiper/>
-        </div>
+        return  (
+            <div>
+                <MyList/>
+            </div>
+        )
     }
 
 }
