@@ -2,7 +2,7 @@ import React,{Component} from "react"
 import ReactSwiper from "./views/ReactSwiper"
 import UserList from "./views/UserList"
 import MyList from "./components/MyList"
-
+import ProductList from "./views/ProductList"
 
 
 
@@ -17,7 +17,7 @@ export default class App extends Component{
     render() {
         return  (
             <div>
-                <MyList/>
+                <ProductList/>
             </div>
         )
     }

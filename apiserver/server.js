@@ -27,6 +27,11 @@ router.get("/user",(req,res)=>{
     ])
 })
 
+router.get("/products",(req,res)=>{
+    const product = require("./data/product")
+    res.json(product)
+})
+
 
 app.use("/api",router)
 

@@ -73,4 +73,4 @@ function ajaxFactory(name) {
 }
 
 
-export default ajaxFactory("A")
+export default ajaxFactory("F")
