@@ -1,0 +1,81 @@
+1. 组件的设计 props slot template
+   木偶组件，和智能组件
+   components 只有props 没有data lifecircle
+   pages /views  data lifecirlce props
+2. 组件的组装
+   父子关系，兄弟关系 vuex 事件总线
+
+3. 组件的数据
+   生命周期应用
+
+   created beforeMount
+   refs
+   viewmodel a model of view data methods
+
+
+
+react
+
+staruml visio
+
+
+react react-router redux
+
+
+npm install vue-router -S
+vue.use(VueRouter)
+添加一个router模块，路由map规则
+VueRouter routes
+把router模块注册到viewmodel $router $route
+app.vue 添加一个router-view
+
+
+
+npm install react-router-dom -S
+直接在app.jsx中添加路由规则
+
+BrowserRouter === VueRouter
+Route    ===  routes
+
+react中的风格是使用jsx
+
+query  ?a=1
+params /a/:id
+
+vuex redux elm 状态管理容器
+
+vuex 核心对象
+store 管理状态的一个容器
+state 共享的状态
+mutations 修改状态 ： 基于事件
+actions 接收dispatch 事件，提交到mutations
+getters 获取store中的最新状态 mapGetters computed
+module: 模块化管理
+
+
+vuex是基于redux flux ，
+
+redux 核心对象
+store 管理共享状态的一个容器
+state 共享的状态
+reducer : 修改状态的一个规则  老板
+middleware 中间件
+
+vuex 像一个管理规范一个饭店
+redux 像一个路边的小摊 老板
+
+redux作用: 管理需要共享的组件状态
+适用所有的js组件的一个状态管理容器 vue react angular
+
+使用步骤
+1. npm install redux react-redux
+2. 初始化状态，添加修改状态的规则(reducer)
+3. 根据上面创建的状态，和规则来，创建一个store模块，createStore
+
+
+redux == reduce flux
+
+是一种基本observer一种模式的store
+
+
+

@@ -7,10 +7,10 @@ const path = require("path")
 module.exports = {
     entry: [
         "@babel/polyfill",
-        path.resolve(__dirname,"../","single-component/main.js")
+        path.resolve(__dirname,"../","redux-demo/main.js")
     ],
     output: {
-        path:path.resolve(__dirname,"../","single-component"),
+        path:path.resolve(__dirname,"../","redux-demo"),
         filename: "app.bundle.js"
     },
     resolve: {
